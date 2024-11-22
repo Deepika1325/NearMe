@@ -1,117 +1,152 @@
-# Ex04 Places Around Me
-## Date: 
+# Ex.06 Book Front Cover Page Design
+## Date:
 
-## AIM
-To develop a website to display details about the places around my house.
+## AIM:
+To design a book front cover page using HTML and CSS.
 
-## DESIGN STEPS
+## DESIGN STEPS:
 
-### STEP 1
-Create a Django admin interface.
+### Step 1:
+Create a Django Admin project.
 
-### STEP 2
-Download your city map from Google.
+### Step 2:
+Create an app in the Django interface.
 
-### STEP 3
-Using ```<map>``` tag name the map.
+### Step 3:
+Create a folder named 'static' in the app folder.
 
-### STEP 4
-Create clickable regions in the image using ```<area>``` tag.
+### Step 4:
+Create a new HTML file in the static folder.
 
-### STEP 5
-Write HTML programs for all the regions identified.
+### Step 5:
+Write the HTML code with relevant CSS properties.
 
-### STEP 6
-Execute the programs and publish them.
+### Step 6:
+Choose the appropriate style and color scheme.
 
-## CODE
+### Step 7:
+Insert the images in their appropriate places.
 
-html
+### Step 8:
+Publish the website in the LocalHost.
 
+## PROGRAM:
 ```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Map</title>
-</head>
-<style>
-    img {
-      max-width: 100%;
-      max-height: 100vh;
-      object-fit: contain;
-    }
-</style>
-<body>
-    {% load static %}
-    <h1 align="center">Image Map</h1>
-<img src="{%static 'image/map.jpg'%}" usemap="#image-map">
+<html>
 
-<map name="image-map">
-    <area target="" alt="Bus Stand" title="Bus Stand" href="{% url 'busstand' %}" coords="607,422,791,537" shape="rect">
-    <area target="" alt="Medical College" title="Medical College" href="{% url 'college' %}" coords="1031,188,1306,307" shape="rect">
-    <area target="" alt="Hospital" title="Hospital" href="{% url 'hospital' %}" coords="1225,453,1415,552" shape="rect">
-    <area target="" alt="School" title="School" href="{% url 'school' %}" coords="233,10,440,109" shape="rect">
-    <area target="" alt="Hotel" title="Hotel" href="{% url 'hotel' %}" coords="1310,583,1502,677" shape="rect">
-</map>
+<head>
+    <title>MACHINE LEARNING</title>
+    <style>
+        .bookpage{
+            width: 400px;
+            height: 650px;
+            color:black;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            font-family: 'Roquen';
+            background-image:url(bg.jpg);
+            background-size: cover;
+        }
+
+        .insight{
+            color:rgb(10, 10, 10);
+        }
+
+        .hrstyle{
+            width:100px;
+        }
+
+        .author{
+            display: inline;
+            position: relative;
+            color:black;
+            top:190px;
+            font-family:Georgia;
+            font-size: medium;
+        }
+
+        .booktitle{
+            color:black;
+            font-family: 'Helvetica';
+            font-size: larger;
+            text-align: center;
+            position: relative;
+            top: 30px;
+        }
+
+        .id {
+            width:400px;
+            position: relative;
+            top:180px;
+        }
+
+        .pub{
+            color:rgba(10, 10, 10, 0.76);
+            font-size: medium;
+            position: relative;
+            top:155px;
+            left:330px;
+        }
+
+        .ed{
+            color:rgb(11, 11, 11);
+            font-size: medium;
+            font-family: Verdana;
+            position:relative;
+            top:90px;
+        }
+
+        .subtitle{
+            color:rgb(12, 12, 12);
+            font-family: Arial;
+            font-size: large;
+            position: relative;
+            top:40px;
+        }
+    </style>
+    <title>Book Cover Page</title>
+</head>
+
+<body>
+    <div class="bookpage">
+        <div class="insight">
+            SEC INSIGHT
+        </div>
+        <div class="hrstyle">
+            <hr style="color:blanchedalmond">
+        </div>
+        <div class="booktitle">
+            <h1>Machine Learning for Everyone: Unlocking the Power of Data</h1>
+        </div>
+        <div class="subtitle">
+            A Beginner's Guide to Understanding and Using AI
+        </div>
+        <div class="subtitle">
+            <h1 align="center">Learn & Apply</h1>
+        </div>
+
+        <div class="id">
+            <hr style="color:rgb(12, 132, 217)">
+        </div>
+        <div class="author">
+            <p><b>Cynthia Mehul J</b></p>
+        </div>
+        <div class="pub">
+            SEC
+        </div>
+        <div class="ed">
+            <b>Extended EDITION</b>
+        </div>
+    </div>
 </body>
 </html>
-```
-
-views.py
 
 ```
-from django.shortcuts import render
-def home(request):
-    return render(request,'website.html')
-def busstand(request):
-    return render(request,'busstand.html')
-def college(request):
-    return render(request,'college.html')
-def hospital(request):
-    return render(request,'hospital.html')
-def hotel(request):
-    return render(request,'hotel.html')
-def school(request):
-    return render(request,'school.html')
-```
 
-urls.py
+## OUTPUT:
 
-```
-from django.contrib import admin
-from django.urls import path
-from app import views
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',views.home,name='home'),
-    path('busstand',views.busstand,name='busstand'),
-    path('college',views.college,name='college'),
-    path('hospital',views.hospital,name='hospital'),
-    path('hotel',views.hotel,name='hotel'),
-    path('school',views.school,name='school'),
-]
-```
+![image](https://github.com/user-attachments/assets/de52a40a-97d9-46b8-a6a1-7948fa82df09)
 
-## OUTPUT
-![image](https://github.com/user-attachments/assets/951e7297-6d2d-4e9c-8a2a-48157af13b78)
-
-
-![image](https://github.com/user-attachments/assets/4f866c22-bf2c-4bc7-94c7-df75871785ea)
-
-
-![image](https://github.com/user-attachments/assets/dd099c06-2fa2-4519-ac4a-af44555d7e4d)
-
-
-![image](https://github.com/user-attachments/assets/c18f89ca-fafb-4a32-bd2a-3032ccf3d513)
-
-
-![image](https://github.com/user-attachments/assets/62f040b2-311b-46e6-a43f-dbfb6ab41672)
-
-
-![image](https://github.com/user-attachments/assets/3ca3676f-dd4f-46f7-94c1-8856f4ab49a2)
-
-
-## RESULT
-The program for implementing image maps using HTML is executed successfully.
+## RESULT:
+The program for designing book front cover page using HTML and CSS is completed successfully.
